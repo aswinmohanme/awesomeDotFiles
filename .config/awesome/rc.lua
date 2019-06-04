@@ -58,7 +58,9 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
+run_once({ "urxvtd", "unclutter -root", 
+		"setxkbmap -option caps:swapescape",
+		"xrandr --output VGA1 --mode 1360x768 --left-of LVDS1"}) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
 --[[
