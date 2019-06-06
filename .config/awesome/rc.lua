@@ -58,7 +58,9 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", "unclutter -root", 
+run_once({ "urxvtd", 
+		"dropbox",
+		"unclutter -root", 
 		"setxkbmap -option caps:swapescape",
 		"xrandr --output VGA1 --mode 1360x768 --left-of LVDS1"}) -- entries must be separated by commas
 
@@ -99,11 +101,11 @@ local terminal     = "urxvtc -e /usr/bin/fish"
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = "gvim"
 local browser      = "firefox"
-local guieditor    = "atom"
+local guieditor    = "emacs"
 local scrlocker    = "slock"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "web", "code", "term", "serv", "misc" }
+awful.util.tagnames = { "web", "code", "term", "emacs", "misc" }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
