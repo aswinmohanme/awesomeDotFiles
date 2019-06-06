@@ -72,6 +72,9 @@ awful.spawn.with_shell(
 )
 --]]
 
+-- Call the functions in autorun.sh
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+
 -- }}}
 
 -- {{{ Variable definitions
