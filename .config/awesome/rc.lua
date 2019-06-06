@@ -92,7 +92,7 @@ local themes = {
 local chosen_theme = themes[7]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "urxvt"
+local terminal     = "urxvtc -e /usr/bin/fish"
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = "gvim"
 local browser      = "firefox"
@@ -104,7 +104,7 @@ awful.util.tagnames = { "web", "code", "term", "serv", "misc" }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
-    awful.layout.suit.tile.top,
+    --awful.layout.suit.tile.top,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.fair,
@@ -393,7 +393,7 @@ globalkeys = my_table.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "r", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
@@ -525,7 +525,7 @@ globalkeys = my_table.join(
     -- check https://github.com/DaveDavenport/rofi for more details
 
     -- rofi enable
-    awful.key({ modkey }, "space", function ()
+    awful.key({ modkey }, "r", function ()
             os.execute(string.format("rofi -show %s",
             'drun'))
         end,
