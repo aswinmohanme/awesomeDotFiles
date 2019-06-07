@@ -54,7 +54,7 @@ end
 -- This function will run once every time Awesome is started
 local function run_once(cmd_arr)
     for _, cmd in ipairs(cmd_arr) do
-        awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
+        awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || %s", cmd, cmd))
     end
 end
 
@@ -67,7 +67,6 @@ run_once({
 	"setxkbmap -option caps:swapescape",
 	"xrandr --output VGA1 --mode 1360x768 --left-of LVDS1",
 	-- system
-	"gnome-keyring-daemon --daemonize --login",
 }) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
@@ -100,7 +99,7 @@ local themes = {
 local chosen_theme = themes[7]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "urxvtc -e /usr/bin/fish"
+local terminal     = "urxvtc"
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = "gvim"
 local browser      = "firefox"
