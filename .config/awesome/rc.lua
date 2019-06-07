@@ -58,11 +58,17 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", 
-		"dropbox",
-		"unclutter -root", 
-		"setxkbmap -option caps:swapescape",
-		"xrandr --output VGA1 --mode 1360x768 --left-of LVDS1"}) -- entries must be separated by commas
+run_once({ 
+	-- apps
+	"urxvtd", 
+	"dropbox",
+	-- config
+	"unclutter -root", 
+	"setxkbmap -option caps:swapescape",
+	"xrandr --output VGA1 --mode 1360x768 --left-of LVDS1",
+	-- system
+	"gnome-keyring-daemon --daemonize --login",
+}) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
 --[[
@@ -73,9 +79,6 @@ awful.spawn.with_shell(
     'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
 )
 --]]
-
--- Call the functions in autorun.sh
-awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
 -- }}}
 
