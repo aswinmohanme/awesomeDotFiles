@@ -61,12 +61,15 @@ end
 run_once({ 
 	-- apps
 	"urxvtd", 
-	"dropbox",
 	-- config
 	"unclutter -root", 
 	"setxkbmap -option caps:swapescape",
 	"xrandr --output VGA1 --mode 1360x768 --left-of LVDS1",
 	-- system
+	"xautolock -detectsleep -time 5 -locker slock",
+	-- applets
+	"dropbox",
+	"nm-applet",
 }) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
