@@ -70,6 +70,7 @@ run_once({
 	-- applets
 	"dropbox",
 	"nm-applet",
+	"pa-applet",
 }) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
