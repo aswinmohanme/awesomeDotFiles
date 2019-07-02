@@ -71,6 +71,7 @@ run_once({
 	"dropbox",
 	"nm-applet",
 	"pa-applet",
+	"xinput float 19",
 }) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
